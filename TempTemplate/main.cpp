@@ -60,15 +60,18 @@ public:
 	void SetX(T _x) { x = _x; }
 	void PrintVec() { cout << "(x,y)= (" << x << "," << y << ")" << endl; }	
 
+	// ベクトルの長さを計算する関数
+	T Length() const { return std::sqrt(x*x + y*y); }
+
+	// ベクトルの長さで比較する>演算子をオーバーロード
+	bool operator > (const Vec2& vec) const {
+		return Length() > vec.Length();
+	}
 
 };
 
-//ベクトルの長さをT型で返すメンバ関数を作る
-//ベクトルの長さで比較する>演算子をオーバーロード
-//ベクトルの長さを比べて長いほう表示して本当にあっているか確認(tMaxに入れる)
-
-
 int main() {
+
 	//int var1 = 10;
 	//int var2 = 20;
 	//int res = tMax<int>(var1, var2);
@@ -82,12 +85,21 @@ int main() {
 	//double res3 = tMax<double>(var5, var6);
 	//cout << "myMax : " << res3 << endl;
 
-	Vec2 <double> v;
+	Vec2 <double> v1;
+	v1.x = 2.2;
+	v1.y = 3.5;
+	v1.PrintVec();
+	Vec2 <double> v2;
+	v2.x = 4.4;
+	v2.y = 1.7;
+	v2.PrintVec();
 
-	v.x = 2.2;
-	v.y = 3.5;
-	v.PrintVec();
-
-
+	// ベクトルの長さを比較
+	if (v1 > v2) {
+		cout << "v1 is longer than v2" << endl;
+	}
+	else {
+		cout << "v2 is longer than v1" << endl;
+	}
 	return 0;
 }
