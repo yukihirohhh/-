@@ -89,6 +89,7 @@ int main() {
 	v1.x = 2.2;
 	v1.y = 3.5;
 	v1.PrintVec();
+
 	Vec2 <double> v2;
 	v2.x = 4.4;
 	v2.y = 1.7;
@@ -96,10 +97,10 @@ int main() {
 
 	// ƒxƒNƒgƒ‹‚Ì’·‚³‚ð”äŠr
 	if (v1 > v2) {
-		cout << "v1 is longer than v2" << endl;
+		cout << "v2‚æ‚è’·‚¢v1" << endl;
 	}
 	else {
-		cout << "v2 is longer than v1" << endl;
+		cout << "v1‚æ‚è’·‚¢v2" << endl;
 	}
 	return 0;
 }
