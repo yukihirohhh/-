@@ -61,11 +61,11 @@ public:
 	void PrintVec() { cout << "(x,y)= (" << x << "," << y << ")" << endl; }	
 
 	// ベクトルの長さを計算する関数
-	T Length() const { return std::sqrt(x*x + y*y); }
+	T Length() const { return (T)sqrt(x*x + y*y); }
 
 	// ベクトルの長さで比較する>演算子をオーバーロード
-	bool operator > (const Vec2& vec) const {
-		return Length() > vec.Length();
+	bool operator > (const Vec2<T>& vec) const {
+		return this->Length() > vec.Length();
 	}
 
 };
@@ -85,22 +85,25 @@ int main() {
 	//double res3 = tMax<double>(var5, var6);
 	//cout << "myMax : " << res3 << endl;
 
-	Vec2 <double> v1;
+	Vec2 <int> v1;
 	v1.x = 2.2;
 	v1.y = 3.5;
-	v1.PrintVec();
+	
 
-	Vec2 <double> v2;
+	Vec2 <int> v2;
 	v2.x = 4.4;
 	v2.y = 1.7;
-	v2.PrintVec();
+	
 
 	// ベクトルの長さを比較
-	if (v1 > v2) {
-		cout << "v2より長いv1" << endl;
+	/*if (v1 > v2) {
+		v1.PrintVec();
 	}
 	else {
-		cout << "v1より長いv2" << endl;
-	}
+		v2.PrintVec();
+	}*/
+
+	Vec2<int> res = tMax(v1, v2);
+	res.PrintVec();
 	return 0;
 }
